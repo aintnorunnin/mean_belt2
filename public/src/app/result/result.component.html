@@ -1,0 +1,21 @@
+<a href="/logout">Logout</a>
+
+<h3>{{ username }} ended the Bid. </h3>
+<p>Highest Bidder per Product:</p>
+
+<div class="bids">
+  {{ products[0]?.name }}
+  <p>{{ max0.bidder }} : ${{ max0.amount }} </p>
+</div>
+<hr>
+<div class="bids">
+  {{ products[1]?.name }}
+  <p>{{ max1.bidder }} : ${{ max1.amount }}</p>
+</div>
+<hr>
+<div class="bids">
+  {{ products[2]?.name }}
+  <p>{{ max2.bidder }} : ${{ max2.amount }}</p>
+</div>
+
+<button (click)="startBid()"type="button" name="button">Start Bid</button>

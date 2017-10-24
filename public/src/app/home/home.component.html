@@ -1,0 +1,4 @@
+<form #form="ngForm"(submit)="signIn(user.name)">
+  Please sign in with name: <input required [(ngModel)]="user.name" type="text" name="name" value="">
+  <input [disabled]="!form.valid" type="submit" name="submit" value="Sign In">
+</form>

@@ -1,0 +1,47 @@
+<a href="/logout">Logout</a>
+
+<h2>Bid Now</h2>
+<div class="bids">
+  <form #form='ngForm' (submit)="bid()">
+    {{ products[0]?.name }}
+    <input #bid1='ngModel' [(ngModel)]="amount0" required min= {{max0.amount}}  type="number" name="bida" value="">
+    <p *ngIf="bid1.errors?.required">Bid amount must be higher than the previous bid</p>
+
+    {{ products[1]?.name }}
+    <input #bid2='ngModel' [(ngModel)]="amount1"required min= {{max1.amount}}  type="number" name="bidb" value=""><br>
+    <p *ngIf="bid2.errors?.required">Bid amount must be higher than the previous bid</p>
+
+    {{ products[2]?.name }}
+    <input #bid3='ngModel' [(ngModel)]="amount2" required min= {{max2.amount}} type="number" name="bidc" value=""><br>
+    <p *ngIf="bid3.errors?.required">Bid amount must be higher than the previous bid</p>
+
+    <input [disabled]="!form.valid" type="submit" name="submit" value="End Bid">
+  </form>
+</div>
+<hr>
+<h2>Current Bids</h2>
+
+<div class="bids">
+  {{ products[0]?.name }}
+  <p *ngFor="let bids of products[0]?.bids | filter:search">
+    {{bids.bidder}} : ${{bids.amount}}
+  </p>
+  <input type="text" name="search" [(ngModel)]="search" placeholder="Search...">
+</div>
+<hr>
+<div class="bids">
+  {{ products[1]?.name }}
+  <p *ngFor="let bids of products[1]?.bids | filter:search1">
+    {{bids.bidder}} : ${{bids.amount}}
+  </p>
+  <input type="text" name="search" [(ngModel)]="search1" placeholder="Search...">
+</div>
+<hr>
+<div class="bids">
+  {{ products[2]?.name }}
+  <p *ngFor="let bids of products[2]?.bids | filter:search2 ">
+    {{bids.bidder}} : ${{bids.amount}}
+  </p>
+  <input type="text" name="search" [(ngModel)]="search2" placeholder="Search...">
+</div>
+<hr>
